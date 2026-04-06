@@ -1,7 +1,7 @@
 name: 编译 VPNHotspot APK (纯净无警告·最终版)
 
 on:
-  workflow_dispatch
+  workflow_dispatch:  # 👈 这里修正了，加上了冒号
   push:
     branches: [ main ]
 
@@ -24,7 +24,6 @@ jobs:
       - name: 构建 APK
         run: ./gradlew :mobile:assembleDebug
 
-      # 👇 这是 GitHub 官方【真正支持 Node24】的新版本！无任何警告
       - name: 上传构建产物
         uses: actions/upload-artifact@v5.0.0
         with:
